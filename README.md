@@ -1,2 +1,2 @@
-# co2_exporter
-Co2 exporter based of RTE OpenAPI
+# rte_exporter
+RTE OpenAPI prometheus exporter

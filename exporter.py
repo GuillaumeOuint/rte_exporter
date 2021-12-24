@@ -11,14 +11,23 @@ from prometheus_client import start_http_server, Summary, Gauge
 URL = "https://opendata.reseaux-energies.fr/api/records/1.0/search/"
 # Env Variables
 EXPORTER_PORT = int(os.environ.get('EXPORTER_PORT', 9143))
-RUN_INTERVAL = int(os.environ.get('RUN_INTERVAL', 180))
+RUN_INTERVAL = int(os.environ.get('RUN_INTERVAL', 5))
 
-REQUEST_TIME = Summary('request_processing_seconds', 'Time spent processing request')
-CO2 = Gauge('rte_taux_co2', 'Co2 emitted per kWh')
+pgauge = {}
 
-
-def update_metrics():
-    # HTTP Calls
+def isnt_float(value):
+  try:
+    float(value)
+    return False
+  except:
+    return True
+def isnt_int(value):
+  try:
+    int(value)
+    return False
+  except:
+    return True
+def get_api():
     now = datetime.datetime.utcnow()
     params={
         "dataset": "eco2mix-national-tr",
@@ -29,17 +38,33 @@ def update_metrics():
         "rows": 100
     }
     res = requests.get(URL, params=params).json()
-    last_record = {}
-    for record in res["records"]:
-        if record["fields"].get("taux_co2", None) != None:
-            last_record = record
-    # Variable set
-    CO2.set(last_record["fields"]["taux_co2"])
+    return res
+    
+def update_metrics():
+    res = get_api()
+    record = {}
+    for drd in data["records"]:
+        for field in drd["fields"]:
+            record[field] = drd["fields"][field]
+    for field in record:
+        if isnt_float(record[field]) and isnt_int(record[field]) : continue
+        pgauge[field].set(record[field])
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     start_http_server(EXPORTER_PORT)
-
+    try:
+        data = get_api();
+        record = {}
+        for drd in data["records"]:
+            for field in drd["fields"]:
+                record[field] = drd["fields"][field]
+        for field in record:
+            if isnt_float(record[field])!=True or isnt_int(record[field])!=True :
+                pgauge[field] = Gauge("rte_"+field, field)
+    except Exception as e:
+        print(e);
     while True:
         try:
             update_metrics()
