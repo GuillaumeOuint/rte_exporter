@@ -34,3 +34,7 @@ rte_gaz_cogen
 rte_gaz
 rte_ech_comm_allemagne_belgique
 rte_hydraulique_lacs
+
+## Image docker
+
+Image publiée sur le hub docker: guillaumeouint2/rte_exporter
