@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  co2_exporter:
-    container_name: co2_exporter
-    image: "iderr/co2_exporter:v0.0.1"
+  rte_exporter:
+    container_name: rte_exporter
+    image: "guillaumeouint2/rte_exporter:v0.0.1"
     ports:
       - "9143:9143"
