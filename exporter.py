@@ -11,7 +11,7 @@ from prometheus_client import start_http_server, Summary, Gauge
 URL = "https://opendata.reseaux-energies.fr/api/records/1.0/search/"
 # Env Variables
 EXPORTER_PORT = int(os.environ.get('EXPORTER_PORT', 9143))
-RUN_INTERVAL = int(os.environ.get('RUN_INTERVAL', 5))
+RUN_INTERVAL = int(os.environ.get('RUN_INTERVAL', 180))
 
 pgauge = {}
 
