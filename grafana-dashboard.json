@@ -1,0 +1,1031 @@
+{
+    "__inputs": [],
+    "__requires": [
+      {
+        "type": "grafana",
+        "id": "grafana",
+        "name": "Grafana",
+        "version": "8.1.1"
+      },
+      {
+        "type": "panel",
+        "id": "piechart",
+        "name": "Pie chart",
+        "version": ""
+      },
+      {
+        "type": "panel",
+        "id": "timeseries",
+        "name": "Time series",
+        "version": ""
+      }
+    ],
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": null,
+    "links": [],
+    "panels": [
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "kwatt"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [
+              "min",
+              "max",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "right"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_consommation",
+            "interval": "",
+            "legendFormat": "Consommation",
+            "refId": "A"
+          }
+        ],
+        "title": "CONSO PAYS",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "kwatt"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [
+              "min",
+              "max",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "right"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_fioul",
+            "interval": "",
+            "legendFormat": "Fioul",
+            "refId": "A"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_bioenergies",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Bio energies",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_nucleaire",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Nucléaire",
+            "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_hydraulique",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Hydraulique",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_solaire",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Solaire",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_eolien",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Éolien",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_charbon",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Charbon",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_gaz",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Gaz",
+            "refId": "H"
+          }
+        ],
+        "title": "PRODUCTION",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "massg"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 7,
+          "x": 0,
+          "y": 9
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "hidden",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_taux_co2",
+            "interval": "",
+            "legendFormat": "Co2/KW",
+            "refId": "A"
+          }
+        ],
+        "title": "CO2/KW",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "mappings": [],
+            "max": 1,
+            "min": 0,
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 7,
+          "y": 9
+        },
+        "id": 7,
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "pieType": "pie",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.1.1",
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_fioul/rte_consommation",
+            "interval": "",
+            "legendFormat": "Fioul",
+            "refId": "A"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_bioenergies/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Bio energies",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_nucleaire/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Nucléaire",
+            "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_hydraulique/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Hydraulique",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_solaire/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Solaire",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_eolien/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Éolien",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_charbon/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Charbon",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_gaz/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Gaz",
+            "refId": "H"
+          }
+        ],
+        "title": "MIX ENERGETIQUE",
+        "type": "piechart"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "max": 1,
+            "min": 0,
+            "noValue": "0",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 13,
+          "y": 9
+        },
+        "id": 8,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.1.1",
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_fioul/rte_consommation",
+            "interval": "",
+            "legendFormat": "Fioul",
+            "refId": "A"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_bioenergies/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Bio energies",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_nucleaire/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Nucléaire",
+            "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_hydraulique/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Hydraulique",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_solaire/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Solaire",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_eolien/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Éolien",
+            "refId": "F"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_charbon/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Charbon",
+            "refId": "G"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_gaz/rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Gaz",
+            "refId": "H"
+          }
+        ],
+        "title": "MIX ENERGETIQUE",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "kwatt"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 5,
+          "x": 19,
+          "y": 9
+        },
+        "id": 15,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_prevision_j",
+            "interval": "",
+            "legendFormat": "J",
+            "refId": "A"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_prevision_j1",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "J+1",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_consommation",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "ACTUEL",
+            "refId": "C"
+          }
+        ],
+        "title": "PREVISIONS",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "kwatt"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 0,
+          "y": 17
+        },
+        "id": 10,
+        "options": {
+          "legend": {
+            "calcs": [
+              "min",
+              "max",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "right"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "(rte_fioul+rte_bioenergies+rte_nucleaire+rte_hydraulique+rte_solaire+rte_eolien+rte_charbon+rte_gaz)-rte_consommation",
+            "interval": "",
+            "legendFormat": "Manque/Surplus",
+            "refId": "A"
+          }
+        ],
+        "title": "MANQUE/SURPLUS PRODUCTION",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "megwatt"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 12,
+          "y": 17
+        },
+        "id": 12,
+        "options": {
+          "legend": {
+            "calcs": [
+              "min",
+              "max",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "right"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_ech_comm_allemagne_belgique",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "AL/BE",
+            "refId": "B"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_ech_comm_espagne",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "ES",
+            "refId": "C"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_ech_comm_italie",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "IT",
+            "refId": "D"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_ech_comm_suisse",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "SW",
+            "refId": "E"
+          },
+          {
+            "exemplar": true,
+            "expr": "rte_ech_comm_angleterre",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "GB",
+            "refId": "F"
+          }
+        ],
+        "title": "ECHANGES",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "megwatt"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 6,
+          "x": 18,
+          "y": 17
+        },
+        "id": 13,
+        "options": {
+          "legend": {
+            "calcs": [
+              "min",
+              "max",
+              "mean",
+              "lastNotNull"
+            ],
+            "displayMode": "table",
+            "placement": "right"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "rte_ech_physiques",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "TOTAL",
+            "refId": "A"
+          }
+        ],
+        "title": "ECHANGES",
+        "type": "timeseries"
+      }
+    ],
+    "schemaVersion": 30,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "RTE Energies",
+    "uid": "MQGYCwTnz",
+    "version": 8
+  }
