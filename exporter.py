@@ -43,28 +43,19 @@ def get_api():
 def update_metrics():
     res = get_api()
     record = {}
-    for drd in data["records"]:
+    for drd in res["records"]:
         for field in drd["fields"]:
             record[field] = drd["fields"][field]
     for field in record:
         if isnt_float(record[field]) and isnt_int(record[field]) : continue
+        if not field in pgauge:
+            pgauge[field] = Gauge("rte_"+field, field)
         pgauge[field].set(record[field])
 
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     start_http_server(EXPORTER_PORT)
-    try:
-        data = get_api();
-        record = {}
-        for drd in data["records"]:
-            for field in drd["fields"]:
-                record[field] = drd["fields"][field]
-        for field in record:
-            if isnt_float(record[field])!=True or isnt_int(record[field])!=True :
-                pgauge[field] = Gauge("rte_"+field, field)
-    except Exception as e:
-        print(e);
     while True:
         try:
             update_metrics()
