@@ -31,7 +31,7 @@ def get_api():
     now = datetime.datetime.utcnow()
     params={
         "dataset": "eco2mix-national-tr",
-        "q": "date_heure:[2021-11-03T{}:00:00Z TO 2021-11-03T{}:00:00Z]".format(now.hour - 1, now.hour + 2),
+        "q": "date_heure:[2021-11-03T{}:{}:00Z TO 2021-11-03T{}:{}:00Z]".format(now.hour - 1,now.minute, now.hour,now.minute),
         "sort": "-date_heure",
         "facet": ["nature", "date_heure"],
         "timezone": "Europe/Paris",
