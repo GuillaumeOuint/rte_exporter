@@ -53,6 +53,7 @@ def update_metrics():
         pgauge[field].set(record[field])
 
 
+
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     start_http_server(EXPORTER_PORT)
