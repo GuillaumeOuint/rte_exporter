@@ -38,3 +38,8 @@ rte_hydraulique_lacs
 ## Image docker
 
 Image publiée sur le hub docker: guillaumeouint2/rte_exporter
+
+
+## Attention
+
+Il y a un timeshift d'une heure sur les métriques récupérées par rapport à l'heure actuelle.
